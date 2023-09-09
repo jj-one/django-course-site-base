@@ -10,18 +10,18 @@
 {% block body %}
   {% if found %}
     <article>
-      <img src="" alt="">
+      <img id="main-image" src="{{selected_meetup.image.url}}" alt="{{selected_meetup.title}}">
 
       <section id="location">
         <h2>Meetup Location</h2>
-        <address>The meetup takes place at <span>{{selected_meetup.location}}</span> {{selected_meetup.address}}</address>
+        <address>The meetup takes place at <span>{{selected_meetup.location.name}}</span> {{selected_meetup.location.address}}</address>
       </section>
       <section>
         <h2>What's the Meetup About?</h2>
         <p>{{selected_meetup.description}}</p>
         <footer>
           <p>
-            Need more details? Please, contact the <a href="">Organizer</a> but don't spam us
+            Need more details? Please, contact the <a href="mailto:{{selected_meetup.organizer.email}}">Organizer</a> but don't spam us
           </p>
         </footer>
       </section>
