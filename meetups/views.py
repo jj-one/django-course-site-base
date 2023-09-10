@@ -21,7 +21,7 @@ def meetup_details(request, meetup_slug):
       participant, _ = Participant.objects.get_or_create(email=email)
       # participant = registration_form.save()
       selected_meetup.participant.add(participant)
-      return redirect("registration-success", selected_meetup.slug)
+      return redirect("registration-success", meetup_slug=selected_meetup.slug)
   
   context = {"found": True, "selected_meetup": selected_meetup, "form": registration_form}
   return render(request, "meetups/meetup-details.html", context)
