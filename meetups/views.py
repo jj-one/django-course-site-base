@@ -17,9 +17,9 @@ def meetup_details(request, meetup_slug):
   if request.method == "POST":
     registration_form = RegistrationForm(request.POST)
     if registration_form.is_valid():
-      # email = registration_form.cleaned_data["email"]
-      # participant, _ = Participant.objects.get_or_create(email=email)
-      participant = registration_form.save()
+      email = registration_form.cleaned_data["email"]
+      participant, _ = Participant.objects.get_or_create(email=email)
+      # participant = registration_form.save()
       selected_meetup.participant.add(participant)
       return redirect("registration-success", selected_meetup.slug)
   

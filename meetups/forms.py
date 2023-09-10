@@ -1,10 +1,7 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Participant
 
-class RegistrationForm(ModelForm):
+class RegistrationForm(forms.Form):
 
-  class Meta:
-    
-    model = Participant
-    fields = ["email"]
+  email = forms.EmailField(max_length=200, required=True, label="Enter your email:")
     
